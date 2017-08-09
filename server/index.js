@@ -3,8 +3,14 @@ const app = express();
 
 app.use(express.static('client'));
 
-// app.get('/', (req, res) => {
-//     res.send('start');
-// });
+app.set('view engine', 'ejs');
 
-app.listen(3000);
+import serverRender from './render';
+
+app.get('/', (req, res) => {
+    res.render('index', {
+        content: serverRender()
+    });
+});
+
+app.listen(3000, () => console.log(`Server is running at port 3000`));

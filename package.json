@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "nodemon": "nodemon --exec babel-node server/index",
     "webpack": "webpack -wd"
   },
   "repository": {
@@ -17,10 +18,14 @@
   },
   "homepage": "https://github.com/Drebezg/forvard1#readme",
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "^4.15.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "webpack": "^3.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
