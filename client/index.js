@@ -1,4 +1,6 @@
+import App from './components/App';
+
 ReactDOM.render(
-    <h2>React Application</h2>,
+    <App />,
     document.getElementById("root")
 );
