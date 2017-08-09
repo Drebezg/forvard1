@@ -7,10 +7,8 @@ const pool = new Pool({
   password: 'aq1sw2de3fr4',
   port: 5432,
 });
-pool.connect((err, client, done) => {
+
+pool.query('SELECT * from books', [], (err, result) => {
     if(err) throw err;
-    client.query('SELECT * from books', [], (err, res) => {
-        if(err) throw err;
-        console.log(res.rows);
-    });
+    console.log(result.rows);
 });
