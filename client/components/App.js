@@ -1,10 +1,18 @@
 import BookList from './BookList';
+import axios from 'axios';
 const React = require('react');
 class App extends React.Component {
-    state = {answer: 55};
+    state = {books: []};
+    componentDidMount() {
+        //ajax
+        axios.get('http://localhost:3000/api/books')
+            .then(resp => {
+                this.setState({books: resp.data});
+            });
+    }
     render() {
         return (
-            <BookList />
+            <BookList books={this.state.books}/>
         );
     }
 }
