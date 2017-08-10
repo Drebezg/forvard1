@@ -1,8 +1,13 @@
 const React = require('react');
-
+import axios from 'axios';
 import App from '../client/components/App';
 const ReactDOMServer = require('react-dom/server');
 
 export default () => {
-    return ReactDOMServer.renderToString(<App />);
+    return axios.get('http://localhost:3000/api/books')
+        .then(resp => {
+            return ReactDOMServer.renderToString(
+                <App initialData={resp.data}/>
+            );
+        });
 };

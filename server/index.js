@@ -8,13 +8,15 @@ app.use(express.static('client'));
 
 app.set('view engine', 'ejs');
 
-//import serverRender from './render';
+import serverRender from './render';
 import apiRouter from './apiRouter';
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        content: ''//serverRender()
-    });
+    serverRender().then(content =>
+        res.render('index', {
+            content,
+        })
+    );
 });
 
 app.use('/api', apiRouter);
