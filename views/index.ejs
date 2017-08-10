@@ -7,8 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="root"><%- content %></div>
+    <div id="root"><%- markup %></div>
 
+    <script>
+        window.__initialData__ = <%- JSON.stringify(initialData) -%>;
+    </script>
     <script crossorigin src="https://unpkg.com/react@15/dist/react.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script src="/bundle.js"></script>

@@ -12,9 +12,10 @@ import serverRender from './render';
 import apiRouter from './apiRouter';
 
 app.get('/', (req, res) => {
-    serverRender().then(content =>
+    serverRender().then(renderData =>
         res.render('index', {
-            content,
+            markup: renderData.markup,
+            initialData: renderData.data,
         })
     );
 });

@@ -6,8 +6,11 @@ const ReactDOMServer = require('react-dom/server');
 export default () => {
     return axios.get('http://localhost:3000/api/books')
         .then(resp => {
-            return ReactDOMServer.renderToString(
-                <App initialData={resp.data}/>
-            );
+            return {
+                markup: ReactDOMServer.renderToString(
+                    <App initialData={resp.data}/>
+                ),
+                data: resp.data,
+            }
         });
 };
